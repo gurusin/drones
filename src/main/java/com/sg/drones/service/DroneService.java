@@ -10,4 +10,6 @@ public interface DroneService {
     Drone register(DroneCreateRequest dto);
 
     Drone uploadMedication(String serialNo, List<MedicationUploadRequest> dto);
+
+    Drone getBySerialNo(String serialNo);
 }

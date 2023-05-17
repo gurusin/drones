@@ -43,7 +43,7 @@ public class Drone extends BaseEntity {
         final double sum = medicationList.stream().mapToDouble(e -> e.getWeight())
                 .sum();
 
-        if(DroneState.IDLE != state || DroneState.LOADING != state){
+        if(!(DroneState.IDLE == state || DroneState.LOADING == state)){
             errors.add("Drone is not ready for loading ");
         }
         

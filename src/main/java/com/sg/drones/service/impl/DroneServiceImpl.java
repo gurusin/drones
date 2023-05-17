@@ -48,4 +48,16 @@ public class DroneServiceImpl implements DroneService {
             throw new ValidationException(errors);
         }
     }
+
+    @Override
+    public Drone getBySerialNo(String serialNo) {
+        final Optional<Drone> drone = repository.getDroneBySerialNo(serialNo);
+        if(drone.isPresent()){
+           return drone.get();
+        }else {
+            List<String> errors = new ArrayList<>();
+            errors.add("Invalid Serial Number ");
+            throw new ValidationException(errors);
+        }
+    }
 }

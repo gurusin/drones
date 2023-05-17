@@ -47,6 +47,12 @@ public class DroneController {
 
     }
 
+    @GetMapping("/{sno}")
+    public ResponseEntity getDrone(@PathVariable("sno") String serialNo){
+        final Drone drone =droneService.getBySerialNo(serialNo);
+        return new ResponseEntity(drone, HttpStatus.OK);
+
+    }
     private StringBuilder validateBindingResult(final BindingResult bindingResult){
         final  StringBuilder errors = new StringBuilder();
         if (bindingResult.hasErrors()) {
