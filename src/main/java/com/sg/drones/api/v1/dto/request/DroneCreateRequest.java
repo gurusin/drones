@@ -33,6 +33,7 @@ public class DroneCreateRequest {
         drone.setState(DroneState.IDLE);
         drone.setSerialNo(serialNo);
         drone.setMaxWeight(weightLimit);
+        drone.validateBatteryCapacity();
         return drone;
     }
 }

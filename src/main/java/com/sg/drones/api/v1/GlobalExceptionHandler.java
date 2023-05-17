@@ -13,6 +13,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<List<String>> handleValidationException(ValidationException ex) {
-        return new ResponseEntity<>(ex.getValidationErrors(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getValidationErrors(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<List<String>> handleGenericException(Exception ex) {
+        return new ResponseEntity(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

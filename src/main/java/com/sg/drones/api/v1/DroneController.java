@@ -34,7 +34,7 @@ public class DroneController {
 
     }
 
-    @PostMapping("/{sno}")
+    @PutMapping("/{sno}")
     public ResponseEntity loadMedication(@Valid @RequestBody List<MedicationUploadRequest> dto, BindingResult bindingResult,
                                          @PathVariable("sno") String serialNo){
 
@@ -51,8 +51,14 @@ public class DroneController {
     public ResponseEntity getDrone(@PathVariable("sno") String serialNo){
         final Drone drone =droneService.getBySerialNo(serialNo);
         return new ResponseEntity(drone, HttpStatus.OK);
-
     }
+
+    @GetMapping()
+    public ResponseEntity getDrones(@RequestParam(required = false) String state){
+        final List<Drone> drone =droneService.getDronesByState(state);
+        return new ResponseEntity(drone, HttpStatus.OK);
+    }
+
     private StringBuilder validateBindingResult(final BindingResult bindingResult){
         final  StringBuilder errors = new StringBuilder();
         if (bindingResult.hasErrors()) {

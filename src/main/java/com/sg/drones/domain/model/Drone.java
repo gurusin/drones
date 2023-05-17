@@ -59,4 +59,10 @@ public class Drone extends BaseEntity {
             throw new ValidationException(errors);
         }
     }
+
+    public void validateBatteryCapacity(){
+        if(batteryCapacity < 25){
+            state = DroneState.IDLE;
+        }
+    }
 }

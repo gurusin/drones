@@ -12,4 +12,8 @@ public interface DroneService {
     Drone uploadMedication(String serialNo, List<MedicationUploadRequest> dto);
 
     Drone getBySerialNo(String serialNo);
+
+    List<Drone> getDronesByState(String state);
+
+    Object updateStatusOnBatteryCapacity(Drone c);
 }
