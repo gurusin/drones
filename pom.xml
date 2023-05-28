@@ -14,7 +14,7 @@
     <name>drones</name>
     <description>Spring Boot Project with DDD concepts</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
 
@@ -58,6 +58,7 @@
     </dependencies>
 
     <build>
+        <finalName>drones</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
